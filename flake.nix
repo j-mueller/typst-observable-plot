@@ -14,7 +14,9 @@
       (system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
-          f = with fenix.packages.${system}; combine [
+          toolchain = pkgs.stable.toolchain;
+          wasi_stub = import ./nix/wasi-stub.nix { inherit pkgs toolchain; };
+          wasm_target = with fenix.packages.${system}; combine [
             stable.toolchain
             targets.wasm32-wasip1.stable.rust-std
           ];
@@ -22,13 +24,15 @@
           {
             devShells.default = 
               pkgs.mkShell {
-                name = "replace-me";
+                name = "typst-vegalite";
 
                 packages = with pkgs; [
-                  f
+                  wasm_target
+                  wasi_stub
+                  typst
                 ];
 
-                CARGO_TARGET_WASM32_UNKNOWN_UNKNOWN_LINKER = "lld";
+                CARGO_TARGET_WASM32_WASIP1_LINKER = "lld";
               };
           }
       );

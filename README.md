@@ -1,2 +1,6 @@
-# typst-observable-plot
-Run observable-plot in typst with the use of CtxJS.
+# typst-vegalite
+
+Run vegalite in typst
+
+
+TODO: https://github.com/astrale-sharp/wasm-minimal-protocol/tree/master/wasi-stub
