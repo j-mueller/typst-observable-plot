@@ -16,7 +16,7 @@
           pkgs = nixpkgs.legacyPackages.${system};
           f = with fenix.packages.${system}; combine [
             stable.toolchain
-            targets.wasm32-unknown-unknown.stable.rust-std
+            targets.wasm32-wasip1.stable.rust-std
           ];
         in
           {
@@ -26,10 +26,6 @@
 
                 packages = with pkgs; [
                   f
-                  linuxPackages_latest.perf
-                  lldb
-                  llvmPackages.bintools
-                  wasm-pack
                 ];
 
                 CARGO_TARGET_WASM32_UNKNOWN_UNKNOWN_LINKER = "lld";
