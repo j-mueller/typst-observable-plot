@@ -4,17 +4,17 @@
               cargo = toolchain;
               rustc = toolchain;};
     in platform.buildRustPackage rec {
-            pname = "ripgrep";
-            version = "12.1.1";
+            pname = "wasi-stub";
+            version = "637508c184c7bfad7caadf109e2fa3871d99c57e";
 
             src = pkgs.fetchFromGitHub {
-                owner = "BurntSushi";
-                repo = "ripgrep";
+                owner = "astrale-sharp";
+                repo = "wasm-minimal-protocol";
                 rev = version;
-                hash = "sha256-+s5RBC3XSgb8omTbUNLywZnP6jSxZBKSS1BmXOjRF8M=";
+                hash = "sha256-Qj9qrFWrib1i5lswQ9wI0y96/bROXdUmVWhoStbvDo0=";
             };
 
-            cargoHash = "sha256-l1vL2ZdtDRxSGvP0X/l3nMw8+6WF67KPutJEzUROjg8=";
+            cargoHash = "sha256-VsaNue2Jc/gwbAnixW/7NClLwFgmZYtHqvi7uI9Hq88=";
 
             doCheck = false;
 

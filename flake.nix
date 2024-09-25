@@ -30,9 +30,10 @@
                   wasm_target
                   wasi_stub
                   typst
+                  lld
                 ];
 
-                CARGO_TARGET_WASM32_WASIP1_LINKER = "lld";
+                CARGO_TARGET_WASM32_WASIP1_LINKER = "wasm-ld";
               };
           }
       );
