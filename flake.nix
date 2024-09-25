@@ -14,7 +14,7 @@
       (system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
-          toolchain = pkgs.stable.toolchain;
+          toolchain = fenix.packages.${system}.stable.toolchain;
           wasi_stub = import ./nix/wasi-stub.nix { inherit pkgs toolchain; };
           wasm_target = with fenix.packages.${system}; combine [
             stable.toolchain

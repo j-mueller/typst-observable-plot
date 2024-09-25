@@ -7,7 +7,7 @@
             pname = "ripgrep";
             version = "12.1.1";
 
-            src = fetchFromGitHub {
+            src = pkgs.fetchFromGitHub {
                 owner = "BurntSushi";
                 repo = "ripgrep";
                 rev = version;
@@ -18,10 +18,4 @@
 
             doCheck = false;
 
-            meta = with lib; {
-                description = "A fast line-oriented regex search tool, similar to ag and ack";
-                homepage = "https://github.com/BurntSushi/ripgrep";
-                license = with licenses; [ mit unlicense ];
-                maintainers = with maintainers; [];
-            };
 }
