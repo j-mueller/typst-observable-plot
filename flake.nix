@@ -9,26 +9,32 @@
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
   };
 
-  outputs = { self, fenix, nixpkgs }: {
-    packages.x86_64-linux.default = fenix.packages.x86_64-linux.minimal.toolchain;
-    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      modules = [
-        ({ pkgs, ... }: {
-          nixpkgs.overlays = [ fenix.overlays.default ];
-          environment.systemPackages = with pkgs; [
-            (fenix.complete.withComponents [
-              "cargo"
-              "clippy"
-              "rust-src"
-              "rustc"
-              "rustfmt"
-            ])
-            rust-analyzer-nightly
+  outputs = { self, fenix, nixpkgs, flake-utils }:
+    flake-utils.lib.eachDefaultSystem
+      (system:
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
+          f = with fenix.packages.${system}; combine [
+            stable.toolchain
+            targets.wasm32-unknown-unknown.stable.rust-std
           ];
-        })
-      ];
-    };
+        in
+          {
+            devShells.default = 
+              pkgs.mkShell {
+                name = "replace-me";
 
-};
+                packages = with pkgs; [
+                  f
+                  linuxPackages_latest.perf
+                  lldb
+                  llvmPackages.bintools
+                  wasm-pack
+                ];
+
+                CARGO_TARGET_WASM32_UNKNOWN_UNKNOWN_LINKER = "lld";
+              };
+          }
+      );
+
 }
