@@ -1,6 +1,8 @@
 #! /bin/bash
 
-cargo build --release --target wasm32-wasip1
-wasi-stub -r 0 ./target/wasm32-wasip1/release/typst_vegalite.wasm -o typst-package/typst_vegalite.wasm
+cp js/vegalite_helper.js typst-package/
+ctxjs_module_bytecode_builder core-js js/core-js.js typst-package/core-js.kbc1
+ctxjs_module_bytecode_builder vega js/vega@5.30.0.js typst-package/vega.kbc1
+ctxjs_module_bytecode_builder vega-lite js/vega-lite@5.21.0.js typst-package/vega-lite.kbc1
 
 typst compile --root=. test/test.typ 
