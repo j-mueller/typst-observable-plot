@@ -4,16 +4,20 @@
               cargo = toolchain;
               rustc = toolchain;};
     in platform.buildRustPackage rec {
-            pname = "ctxjs-module-bytecode-builder";
+            pname = "ctxjs";
             version = "49241de67c300cb181660c58715c12dad11b4cc2";
 
             src = pkgs.fetchFromGitHub {
                 owner = "lublak";
                 repo = "typst-ctxjs-package";
                 rev = version;
-                hash = "sha256-Qj9qrFWrib1i5lswQ9wI0y96/bROXdUmVWhoStbvDo0=";
+                hash = "sha256-NGwwBhUMicj+5KiI1z8hleEpgyAL3rG1+cvfBhRtf3k=";
             };
-            cargoHash = "sha256-VsaNue2Jc/gwbAnixW/7NClLwFgmZYtHqvi7uI9Hq88=";
+            
+            cargoLock = {
+                lockFile = ./typst-ctxjs-cargo.lock;
+            };
+            # cargoHash = "sha256-D2r7InJnjeyvpWoYFFjXFxPwmY8wKuWQy9zq9qsOcdg=";
 
             doCheck = false;
 
