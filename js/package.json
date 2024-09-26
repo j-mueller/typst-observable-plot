@@ -1,0 +1,26 @@
+{
+  "name": "vegalite-helper",
+  "version": "1.0.0",
+  "exports": "./index.js",
+  "scripts": {
+    "test": "node ./test.js"
+  },
+  "type": "module",
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@ungap/structured-clone": "^1.2.0",
+    "core-js": "^3.38.1",
+    "vega": "^5.30.0",
+    "vega-lite": "^5.21.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-inject": "^5.0.5",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^15.3.0",
+    "rollup": "^4.22.4",
+    "webpack": "^5.95.0",
+    "webpack-cli": "^5.1.4"
+  }
+}

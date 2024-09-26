@@ -1,7 +1,0 @@
-
-
-[toolchain]
-channel = "stable"
-components = []
-targets = [ "wasm32-wasip1" ]
-profile = "default"

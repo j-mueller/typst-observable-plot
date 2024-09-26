@@ -1,8 +1,7 @@
-import 'core-js';
 import * as vega from 'vega';
 import * as lite from 'vega-lite';
 
-function render(spec) {
+async function render_vl_helper(spec) {
   var yourVlSpec = {
       $schema: 'https://vega.github.io/schema/vega-lite/v2.0.json',
       description: 'A simple bar chart with embedded data.',
@@ -25,11 +24,10 @@ function render(spec) {
         y: {field: 'b', type: 'quantitative'}
       }
     };
-
-  lite.compile();
   let vegaspec = lite.compile(yourVlSpec).spec
   var view = new vega.View(vega.parse(vegaspec), { renderer: "none" })
-  return view.toSVG()
+  const k = await view.toSVG()
+  return k; 
 }
 
-export { render }
+export { render_vl_helper }
