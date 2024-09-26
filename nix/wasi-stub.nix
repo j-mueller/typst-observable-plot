@@ -13,7 +13,6 @@
                 rev = version;
                 hash = "sha256-Qj9qrFWrib1i5lswQ9wI0y96/bROXdUmVWhoStbvDo0=";
             };
-
             cargoHash = "sha256-VsaNue2Jc/gwbAnixW/7NClLwFgmZYtHqvi7uI9Hq88=";
 
             doCheck = false;

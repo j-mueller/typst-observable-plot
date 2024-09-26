@@ -28,6 +28,7 @@
 
                 packages = with pkgs; [
                   wasm_target
+                  wasm-pack
                   wasi_stub
                   typst
                   lld
