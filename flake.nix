@@ -16,6 +16,7 @@
           pkgs = nixpkgs.legacyPackages.${system};
           toolchain = fenix.packages.${system}.stable.toolchain;
           wasi_stub = import ./nix/wasi-stub.nix { inherit pkgs toolchain; };
+          ctxjs_module_bytecode_builder = import ./nix/ctxjs-module-bytecode-builder.nix { inherit pkgs toolchain; };
           wasm_target = with fenix.packages.${system}; combine [
             stable.toolchain
             targets.wasm32-wasip1.stable.rust-std
@@ -30,6 +31,7 @@
                   wasm_target
                   wasm-pack
                   wasi_stub
+                  ctxjs_module_bytecode_builder
                   typst
                   lld
                 ];
