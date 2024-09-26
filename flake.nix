@@ -33,6 +33,7 @@
                   wasi_stub
                   ctxjs_module_bytecode_builder
                   typst
+                  nodejs
                   lld
                 ];
 

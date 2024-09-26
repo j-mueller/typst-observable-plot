@@ -1,6 +1,6 @@
-import 'core-js';
-import * as vega from 'vega';
-import * as lite from 'vega-lite';
+require('./core-js.js');
+var vega = require('./vega@5.30.0.js');
+var lite = require('./vega-lite@5.21.0.js');
 
 function render(spec) {
   var yourVlSpec = {
@@ -25,11 +25,9 @@ function render(spec) {
         y: {field: 'b', type: 'quantitative'}
       }
     };
-
-  lite.compile();
   let vegaspec = lite.compile(yourVlSpec).spec
   var view = new vega.View(vega.parse(vegaspec), { renderer: "none" })
   return view.toSVG()
 }
 
-export { render }
+render("")

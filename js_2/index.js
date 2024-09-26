@@ -25,8 +25,6 @@ function render(spec) {
         y: {field: 'b', type: 'quantitative'}
       }
     };
-
-  lite.compile();
   let vegaspec = lite.compile(yourVlSpec).spec
   var view = new vega.View(vega.parse(vegaspec), { renderer: "none" })
   return view.toSVG()
