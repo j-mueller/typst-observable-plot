@@ -1,11 +1,11 @@
-# typst-vegalite
+# nulite
 
 A typst plugin to generate charts using [vegalite](https://vega.github.io/vega-lite/)
 
 ## Usage
 
 ```typst
-#import "../typst-package/lib.typ" as vegalite
+#import "@preview/nulite:0.1.0" as vegalite
 
 #vegalite.render(
   width: 100%,
