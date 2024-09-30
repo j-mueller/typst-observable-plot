@@ -16,6 +16,8 @@ A typst plugin to generate charts using [vegalite](https://vega.github.io/vega-l
 
 ```
 
+![Example](examples/image.png)
+
 The module exports a single function, `render` with four arguments
 
 * `width`: Width of the chart in percent of the container's width
