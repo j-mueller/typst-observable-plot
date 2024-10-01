@@ -5,9 +5,9 @@ A typst plugin to generate charts using [vegalite](https://vega.github.io/vega-l
 ## Usage
 
 ```typst
-#import "@preview/nulite:0.1.0" as vegalite
+#import "@preview/nulite:0.1.0" as nulite
 
-#vegalite.render(
+#nulite.render(
   width: 100%,
   height: 100%,
   zoom: 1,
@@ -34,3 +34,7 @@ The following features of vegalite are **not supported**:
 * Setting `width` and `height` in the spec. These values should be provided as arguments to `render`. If `width` or `height` are included in the spec then they will be ignored.
 * Loading data with the `url` property. Attempting to do this will result in an error while trying to compile the `typst` document. All data should be provided as part of the spec itself (inline).
 * Interactive charts and tooltips. 
+
+## Acknowledgements
+
+Thanks to [lublak](https://github.com/lublak) for making the excellent [echarm](https://typst.app/universe/package/echarm) and [ctxjs](https://typst.app/universe/package/ctxjs/) packages
